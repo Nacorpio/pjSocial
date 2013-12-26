@@ -23,7 +23,7 @@ public class MySQL {
 		this.password = password;
 	}
 	
-	public void OpenConnection(){
+	public synchronized void OpenConnection(){
 		try {
 			con = DriverManager.getConnection("jdbc:mysql://" + ip + ":3306/" + databaseName, username, password);
 		} catch (Exception e) {
@@ -33,7 +33,7 @@ public class MySQL {
 		}
 	}
 
-	public void CloseConnection() {
+	public synchronized void CloseConnection() {
 		try {
 			if (con != null && con.isClosed()) {
 				con.close();
