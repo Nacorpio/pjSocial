@@ -12,7 +12,7 @@ public class Dictionary {
 	static {
 		
 		for (ChatColor var1: ChatColor.values()) {
-			object_dict.put("%" + var1.name().toLowerCase(), ChatColor.valueOf(var1.name()));
+			add("%" + var1.name().toLowerCase(), ChatColor.valueOf(var1.name()));
 		}
 		
 	}

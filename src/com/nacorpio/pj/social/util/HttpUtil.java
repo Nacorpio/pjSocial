@@ -64,8 +64,8 @@ public final class HttpUtil {
 	    }
 	  }
 	
-	public static final String getSource() throws IOException {
-		URL url = new URL("http://www.example.com/");
+	public static final String getSource(String par1) throws IOException {
+		URL url = new URL(par1);
 		URLConnection con = url.openConnection();
 		InputStream in = con.getInputStream();
 		String encoding = con.getContentEncoding();
