@@ -126,7 +126,11 @@ public class DataFormatter {
 		}
 		return var1;
 	}
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> 8c305af33cc02798d1adcdbe2990b62402c99620
 	public static final String toString(ItemStack... par1) {
 		String var1 = "";
 		for (int i = 0; i < par1.length; i++) {
@@ -151,7 +155,11 @@ public class DataFormatter {
 	public static final String toSimpleString(Enchantment par1) {
 		return "(" + toString(par1.getId(), par1.getItemTarget().toString()) + ")";
 	}
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> 8c305af33cc02798d1adcdbe2990b62402c99620
 	public static final String toSimpleString(Location par1) {
 		return "(" + toString(par1.getBlockX(), par1.getBlockY(), par1.getBlockZ(), par1.getYaw(), par1.getPitch()) + ")";
 	}
