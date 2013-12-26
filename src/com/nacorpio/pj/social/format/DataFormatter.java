@@ -1,6 +1,8 @@
 package com.nacorpio.pj.social.format;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.regex.Pattern;
 
 import org.bukkit.Location;
@@ -14,24 +16,51 @@ public class DataFormatter {
 	public static final String VAR_SEP = "->";
 	public static final String SEPARATOR = "&";
 	
+	static class Value {
+		
+		private String name;
+		private Object value;
+		
+		public Value(String par1, String par2) {
+			this.name = par1;
+			this.value = par2;
+		}
+		
+		public final String getName() {
+			return this.name;
+		}
+		
+		public final Object getValue() {
+			return this.value;
+		}
+		
+	}
+	
 	static class FormatValue {
 		
 		private String name;
 		private String[] values = new String[]{};
+		private List<Value> data_values = new ArrayList<Value>();
 		
 		public FormatValue(String par1, String... par2) {
 			if (!isEmpty(par1) && !isEmpty(par2)) {
 				this.name = par1;
 				this.values = par2;
+				for (String value: values) {
+					String name = value.split(Pattern.quote(VAR_SEP))[0];
+					String val = value.split(Pattern.quote(VAR_SEP))[1];
+					Value fval = new Value(name, val);
+					data_values.add(fval);
+				}
 			}
 		}
-		
-		public final void addValue(String par1) {
-			Arrays.asList(values).add(par1);
-		}
-		
+
 		public final String getName() {
 			return name;
+		}
+		
+		public final List<Value> getDataValues() {
+			return data_values;
 		}
 		
 		public final String[] getValues() {
