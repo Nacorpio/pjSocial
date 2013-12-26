@@ -47,7 +47,6 @@ public class DataFormatter {
 	public static final boolean isEmpty(String par1) {
 		return (par1 == null || par1.length() == 0 || par1 == "" || par1.isEmpty());
 	}
-<<<<<<< HEAD
 	
 	// [Player:{Name->Aazk&Health->100&Location->(0&0&0&0&0)}]
 	
@@ -74,9 +73,6 @@ public class DataFormatter {
 		return (par1.startsWith("[") && par1.endsWith("}]") && par1.contains(":{"));
 	}
 	
-=======
-
->>>>>>> b687e62985b69943f54df455efb8aaae772b39ba
 	public static final String toFormat(String par1, String... par2) {
 		String var1 = "";
 		if (!isEmpty(par1) && !isEmpty(par2)) {
@@ -110,8 +106,7 @@ public class DataFormatter {
 		}
 		return var1;
 	}
-<<<<<<< HEAD
-	
+
 	public static final String toString(Enchantment... par1) {
 		String var1 = "";
 		for (int i = 0; i < par1.length; i++) {
@@ -131,10 +126,7 @@ public class DataFormatter {
 		}
 		return var1;
 	}
-	
-=======
 
->>>>>>> b687e62985b69943f54df455efb8aaae772b39ba
 	public static final String toString(ItemStack... par1) {
 		String var1 = "";
 		for (int i = 0; i < par1.length; i++) {
@@ -154,16 +146,12 @@ public class DataFormatter {
 		}
 		return var1;
 	}
-<<<<<<< HEAD
 	
 	@SuppressWarnings("deprecation")
 	public static final String toSimpleString(Enchantment par1) {
 		return "(" + toString(par1.getId(), par1.getItemTarget().toString()) + ")";
 	}
 	
-=======
-
->>>>>>> b687e62985b69943f54df455efb8aaae772b39ba
 	public static final String toSimpleString(Location par1) {
 		return "(" + toString(par1.getBlockX(), par1.getBlockY(), par1.getBlockZ(), par1.getYaw(), par1.getPitch()) + ")";
 	}
