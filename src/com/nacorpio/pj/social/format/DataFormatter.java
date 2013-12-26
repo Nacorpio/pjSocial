@@ -49,6 +49,26 @@ public class DataFormatter {
 		return var1;
 	}
 	
+	public static final String toString(ItemStack... par1) {
+		String var1 = "";
+		for (int i = 0; i < par1.length; i++) {
+			if (i < par1.length - 1) {
+				if (par1[i] != null) {
+					var1 += toSimpleString(par1[i]) + ":";
+				} else {
+					var1 += "null" + ":";
+				}
+			} else {
+				if (par1[i] != null) {
+					var1 += toSimpleString(par1[i]);
+				} else {
+					var1 += "null";
+				}
+			}
+		}
+		return var1;
+	}
+	
 	public static final String toSimpleString(Location par1) {
 		return "(" + toString(par1.getBlockX(), par1.getBlockY(), par1.getBlockZ(), par1.getYaw(), par1.getPitch()) + ")";
 	}
@@ -58,11 +78,11 @@ public class DataFormatter {
 	}
 	
 	public static final String toSimpleString(Inventory par1) {
-		return "";
+		return "(" + toString(par1.getContents()) + ")";
 	}
 	
 	public static final String toString(Player par1) {
-		return toFormat("Player", "Name:" + par1.getName(), "Location:" + toSimpleString(par1.getLocation()));
+		return toFormat("Player", "Name:" + par1.getName(), "Location:" + toSimpleString(par1.getLocation()), "Inventory:" + toSimpleString(par1.getInventory()));
 	}
 	
 }
