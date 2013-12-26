@@ -4,7 +4,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import com.nacorpio.pj.social.config.ConfigHandler;
 
-public class ProjectSocial extends JavaPlugin {
+public final class ProjectSocial extends JavaPlugin {
 
 	public static JavaPlugin plugin;
 	

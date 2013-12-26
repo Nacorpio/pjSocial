@@ -1,7 +1,6 @@
 package com.nacorpio.pj.social.format;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -185,7 +184,7 @@ public class DataFormatter {
 	public static final String toFormat(String par1, String... par2) {
 		String var1 = "";
 		if (!isEmpty(par1) && !isEmpty(par2)) {
-			var1 += "[" + par1 + ":{" + toString(par2) + "}]";
+			var1 += "[" + par1 + ":{" + toString((Object[]) par2) + "}]";
 		}
 		return var1;
 	}
