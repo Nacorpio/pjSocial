@@ -34,9 +34,9 @@ public class DataFormatter {
 		for (int i = 0; i < par1.length; i++) {
 			if (i < par1.length - 1) {
 				if (par1[i] != null) {
-					var1 += par1[i] + ",";
+					var1 += par1[i] + ":";
 				} else {
-					var1 += "null" + ",";
+					var1 += "null" + ":";
 				}
 			} else {
 				if (par1[i] != null) {
