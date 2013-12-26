@@ -1,6 +1,7 @@
 package com.nacorpio.pj.social.format;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -27,7 +28,7 @@ public class DataFormatter {
 		private String name;
 		private Object value;
 		
-		public Value(String par1, String par2) {
+		public Value(String par1, Object par2) {
 			this.name = par1;
 			this.value = par2;
 		}
@@ -46,6 +47,10 @@ public class DataFormatter {
 		 */
 		public final Object getValue() {
 			return this.value;
+		}
+		
+		public final String getSource() {
+			return this.name + VAR_SEP + this.value;
 		}
 		
 	}
@@ -99,6 +104,15 @@ public class DataFormatter {
 			return null;
 		}
 		
+		public final boolean hasValue(String par1) {
+			for (String var1: values) {
+				if (var1.contains(par1 + "->")) {
+					return true;
+				}
+			}
+			return false;
+		}
+		
 		/**
 		 * Returns all values in unparsed form.
 		 * @return the values.
@@ -107,6 +121,21 @@ public class DataFormatter {
 			return values;
 		}
 		
+	}
+
+	public static final String val(String par1, Object par2) {
+		if (par2 instanceof Location) {
+			return new Value(par1, DataFormatter.toSimpleString((Location) par2)).getSource();
+		} else if (par2 instanceof Player) {
+			return new Value(par1, DataFormatter.toString((Player) par2)).getSource();
+		} else if (par2 instanceof Inventory) {
+			return new Value(par1, DataFormatter.toSimpleString((Inventory) par2)).getSource();
+		} else if (par2 instanceof ItemStack) {
+			return new Value(par1, DataFormatter.toSimpleString((ItemStack) par2)).getSource();
+		} else if (par2 instanceof Enchantment) {
+			return new Value(par1, DataFormatter.toSimpleString((Enchantment) par2)).getSource();
+		}
+		return new Value(par1, par2).getSource();
 	}
 	
 	public static final boolean isEmpty(String... par1) {
@@ -272,7 +301,7 @@ public class DataFormatter {
 	}
 
 	public static final String toString(Player par1) {
-		return toFormat("Player", "Name" + VAR_SEP + par1.getName(), "Location" + VAR_SEP + toSimpleString(par1.getLocation()), "Inventory:" + VAR_SEP + toSimpleString(par1.getInventory()));
+		return toFormat("Player", val("Name", par1.getName()), val("Location", par1.getLocation()), val("Inventory", par1.getInventory()));
 	}
 
 }
