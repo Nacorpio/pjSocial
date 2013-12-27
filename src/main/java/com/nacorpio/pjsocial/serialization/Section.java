@@ -1,10 +1,10 @@
-package com.nacorpio.pj.social.serialization;
+package com.nacorpio.pjsocial.serialization;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import com.nacorpio.pj.social.util.SerializationUtil;
+import com.nacorpio.pjsocial.util.SerializationUtil;
 
 /**
  * This represents a serialization-section.<br>

@@ -1,4 +1,4 @@
-package com.nacorpio.pj.social.config;
+package com.nacorpio.pjsocial.config;
 
 import java.io.File;
 import java.io.IOException;
@@ -6,7 +6,7 @@ import java.io.IOException;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 
-import com.nacorpio.pj.social.ProjectSocial;
+import com.nacorpio.pjsocial.ProjectSocial;
 
 public final class ConfigHandler {
 	

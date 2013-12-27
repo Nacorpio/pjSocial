@@ -1,4 +1,4 @@
-package com.nacorpio.pj.social.util;
+package com.nacorpio.pjsocial.util;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;

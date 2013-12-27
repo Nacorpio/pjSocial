@@ -1,8 +1,8 @@
-package com.nacorpio.pj.social.serialization;
+package com.nacorpio.pjsocial.serialization;
 
 import org.bukkit.inventory.ItemStack;
 
-import com.nacorpio.pj.social.util.SerializationUtil;
+import com.nacorpio.pjsocial.util.SerializationUtil;
 
 public class ItemStackSection extends Section {
 

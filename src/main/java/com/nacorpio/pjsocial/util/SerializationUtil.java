@@ -1,4 +1,4 @@
-package com.nacorpio.pj.social.util;
+package com.nacorpio.pjsocial.util;
 
 import java.util.ArrayList;
 import java.util.Arrays;

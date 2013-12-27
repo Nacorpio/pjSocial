@@ -1,4 +1,4 @@
-package com.nacorpio.pj.social.serialization;
+package com.nacorpio.pjsocial.serialization;
 
 public class Serialization<T> {
 	

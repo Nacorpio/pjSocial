@@ -1,4 +1,4 @@
-package com.nacorpio.pj.social.data;
+package com.nacorpio.pjsocial.data;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,9 +1,9 @@
-package com.nacorpio.pj.social;
+package com.nacorpio.pjsocial;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-import com.nacorpio.pj.social.config.ConfigHandler;
-import com.nacorpio.pj.social.listener.ChatListener;
+import com.nacorpio.pjsocial.config.ConfigHandler;
+import com.nacorpio.pjsocial.listener.ChatListener;
 
 public final class ProjectSocial extends JavaPlugin {
 

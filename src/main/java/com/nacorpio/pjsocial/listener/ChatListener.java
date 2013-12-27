@@ -1,4 +1,4 @@
-package com.nacorpio.pj.social.listener;
+package com.nacorpio.pjsocial.listener;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

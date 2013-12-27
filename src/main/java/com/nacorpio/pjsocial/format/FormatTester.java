@@ -1,9 +1,6 @@
-package com.nacorpio.pj.social.format;
+package com.nacorpio.pjsocial.format;
 
-import java.util.regex.Pattern;
-
-import com.nacorpio.pj.social.serialization.Section;
-import com.nacorpio.pj.social.util.SerializationUtil;
+import com.nacorpio.pjsocial.serialization.Section;
 
 public final class FormatTester {
 

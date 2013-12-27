@@ -1,8 +1,8 @@
-package com.nacorpio.pj.social.listener;
+package com.nacorpio.pjsocial.listener;
 
 import org.bukkit.Bukkit;
 
-import com.nacorpio.pj.social.format.DataFormatter;
+import com.nacorpio.pjsocial.format.DataFormatter;
 
 public final class Chat {
 	
