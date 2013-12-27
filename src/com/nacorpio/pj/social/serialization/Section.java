@@ -1,9 +1,10 @@
 package com.nacorpio.pj.social.serialization;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
+
+import com.nacorpio.pj.social.util.SerializationUtil;
 
 /**
  * This represents a serialization-section.<br>
@@ -22,8 +23,10 @@ public class Section {
 	}
 	
 	public Section(String par1, String par2) {
-		this.name = par1;
-		this.content = par2;
+		if (SerializationUtil.isValidSectionName(par1)) {
+			this.name = par1;
+			this.content = par2;
+		}	
 	}
 	
 	/**

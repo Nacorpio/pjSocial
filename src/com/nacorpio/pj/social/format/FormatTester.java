@@ -1,7 +1,6 @@
 package com.nacorpio.pj.social.format;
 
 import com.nacorpio.pj.social.serialization.Section;
-import com.nacorpio.pj.social.util.SerializationUtil;
 
 public final class FormatTester {
 

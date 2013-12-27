@@ -1,5 +1,6 @@
 package com.nacorpio.pj.social.util;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -9,6 +10,12 @@ import org.bukkit.inventory.ItemStack;
 
 public class SerializationUtil {
 
+	public static final boolean isValidSectionName(String par1) {
+		return !(contains(":", "(", ")", "{", "}", "%"));
+	}
+	
+	// // //
+	
 	public static final String toShortString(Object... par1) {
 		return join(':', par1);
 	}
@@ -29,6 +36,18 @@ public class SerializationUtil {
 		String var1 = "";
 		var1 += join(':', "[" + join(',', par1.getBlockX(), par1.getBlockY(), par1.getBlockZ()) + "]", par1.getPitch(), par1.getYaw());
 		return var1;
+	}
+	
+	// // //
+	
+	public static final boolean contains(String par1, String... par2) {
+		List<Boolean> var = new ArrayList<Boolean>();
+		for (String str: par2) {
+			if (par1.contains(str)) {
+				var.add(true);
+			}
+		}
+		return !var.contains(false);
 	}
 	
 	public static final String join(Character par1, Object... par2) {
