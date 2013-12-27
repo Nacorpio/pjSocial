@@ -284,7 +284,8 @@ public class DataFormatter {
 	/**
 	 * Serializes the specified ItemStack into a readable String.
 	 * @param par1 the ItemStack to use.
-	 * @return the end-result.
+	 * @return the end-result.g
+	 *
 	 */
 	public static final String toSimpleString(ItemStack par1) {
 		return "(" + toString(par1.getType(), par1.getAmount(), par1.getItemMeta().getDisplayName(), par1.getItemMeta().getLore()) + ")";
