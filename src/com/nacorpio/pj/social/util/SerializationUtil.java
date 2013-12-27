@@ -3,6 +3,7 @@ package com.nacorpio.pj.social.util;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import org.bukkit.Location;
 import org.bukkit.enchantments.Enchantment;
@@ -48,6 +49,28 @@ public class SerializationUtil {
 			}
 		}
 		return !var.contains(false);
+	}
+	
+	public static final boolean isArray(String par1) {
+		return par1.startsWith("[") && par1.endsWith("]");
+	}
+	
+	public static final String getProperty(String par1, String par2) {
+		for (String var1: par2.split("\n")) {
+			if (var1.startsWith("- " + par1 + ": ")) {
+				return var1.split(": ")[1];
+			}
+		}
+		return null;
+	}
+	
+	public static final Object[] getArray(String par1, String par2) {
+		String var1 = getProperty(par1, par2);
+		if (isArray(var1)) {
+			String var2 = var1.split(Pattern.quote("["))[1].split(Pattern.quote("]"))[0];
+			return var2.split(Pattern.quote(","));
+		}
+		return null;
 	}
 	
 	public static final String join(Character par1, Object... par2) {

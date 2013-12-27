@@ -61,6 +61,20 @@ public class Section {
 	}
 	
 	/**
+	 * Returns the property that starts with/contains the specified String.<br>
+	 * @param par1 the property to look for.
+	 * @return 
+	 */
+	public final String getProperty(String par1) {
+		for (String prop: properties) {
+			if (prop.startsWith(par1) || prop.contains(par1)) {
+				return prop;
+			}
+		}
+		return null;
+	}
+	
+	/**
 	 * Returns the property at the specified index.
 	 * @param par1 the index.
 	 * @return the property.
