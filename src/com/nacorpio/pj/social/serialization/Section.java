@@ -5,6 +5,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 
+/**
+ * This represents a serialization-section.<br>
+ * Those are used for either saving lists of data or just variables.<br>
+ * Section can be extended and be used as a way to save custom data.
+ */
 public class Section {
 
 	private String name;
