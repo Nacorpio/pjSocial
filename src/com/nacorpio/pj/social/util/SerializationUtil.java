@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
 
@@ -37,6 +38,24 @@ public class SerializationUtil {
 		String var1 = "";
 		var1 += join(':', "[" + join(',', par1.getBlockX(), par1.getBlockY(), par1.getBlockZ()) + "]", par1.getPitch(), par1.getYaw());
 		return var1;
+	}
+	
+	// Not tested
+	public static final ItemStack toItemStack(String par1) {
+		ItemStack built;
+		String[] var1 = par1.split(":");
+		String name = var1[0];
+		int amount = Integer.parseInt(var1[1]);
+		Short dur = Short.parseShort(var1[2]);
+		String[] lore = null;
+		String dis = null;
+		if (var1[3] != "null") {dis = var1[3];}
+		if (isArray(var1[4])) {lore = var1[4].split(",");}
+		built = new ItemStack(Material.getMaterial(name), amount);
+		built.setDurability(dur);
+		if (lore != null && lore.length >= 1) built.getItemMeta().setLore(Arrays.asList(lore));
+		if (dis != null) built.getItemMeta().setDisplayName(dis);
+		return built;
 	}
 	
 	// // //
