@@ -38,6 +38,13 @@ public class Section {
 		this.name = par1;
 	}
 	
+	/**
+	 * Add a new property to the section.<br>
+	 * There are no rules when it comes to adding the data.<br>
+	 * It can either be used as an array, or just variables.<br>
+	 * <i>Doesn't require a reload.
+	 * @param par1 the property.
+	 */
 	public final void addProperty(String par1) {
 		if (!reloaded) {
 			properties.add("- " + par1);
@@ -45,10 +52,19 @@ public class Section {
 		}
 	}
 	
+	/**
+	 * Returns the property at the specified index.
+	 * @param par1 the index.
+	 * @return the property.
+	 */
 	public final String getProperty(int par1) {
 		return properties.get(par1);
 	}
 	
+	/**
+	 * Clear all the properties of the section.<br>
+	 * <i>Doesn't require a reload.
+	 */
 	public final void clearProperties() {
 		if (!reloaded) {
 			properties.clear();
@@ -56,6 +72,11 @@ public class Section {
 		}
 	}
 	
+	/**
+	 * Remove a property from the section.<br>
+	 * <i>Doesn't require a reload.
+	 * @param par1 the index.
+	 */
 	public final void removeProperty(int par1) {
 		if (!reloaded) {
 			properties.remove(par1);
@@ -63,14 +84,28 @@ public class Section {
 		}
 	}
 	
+	/**
+	 * Returns all the properties of the section.<br>
+	 * When reloaded, the properties are parsed from the source.
+	 * @return the properties.
+	 */
 	public final List<String> getProperties() {
 		return this.properties;
 	}
 	
+	/**
+	 * Returns the content within the curly-brackets.
+	 * @return the content.
+	 */
 	public final String getContent() {
 		return this.content;
 	}
 	
+	/**
+	 * Returns the entire source of the serialization.<br>
+	 * This is built together manually in the {@link #getSource()}.
+	 * @return the source.
+	 */
 	public final String getSource() {
 		String var1 = "(" + name + "):{";
 		// if (this.content == null || this.content == "") {
@@ -91,6 +126,11 @@ public class Section {
 		return var1;
 	}
 	
+	/**
+	 * Reload the changes of the section.<br>
+	 * This method is required to be executed at many points.<br>
+	 * All the source-code will be updated in this method.
+	 */
 	public final void reload() {
 		this.reloaded = true;
 		//System.out.println(getSource());
