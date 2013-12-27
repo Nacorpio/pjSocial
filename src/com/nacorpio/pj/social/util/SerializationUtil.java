@@ -56,7 +56,8 @@ public class SerializationUtil {
 	}
 	
 	public static final String getProperty(String par1, String par2) {
-		for (String var1: par2.split("\n")) {
+		System.out.println(par2);
+		for (String var1: par2.split("&")) {			
 			if (var1.startsWith("- " + par1 + ": ")) {
 				return var1.split(": ")[1];
 			}

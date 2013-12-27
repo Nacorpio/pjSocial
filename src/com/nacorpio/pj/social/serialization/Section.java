@@ -56,6 +56,7 @@ public class Section {
 	public final void addProperty(String par1) {
 		if (!reloaded) {
 			properties.add("- " + par1);
+			System.out.println("- " + par1);
 			this.reload();
 		}
 	}
@@ -156,7 +157,7 @@ public class Section {
 	public final void reload() {
 		this.reloaded = true;
 		//System.out.println(getSource());
-		this.content = getSource().split(Pattern.quote("{"))[1].split(Pattern.quote("}"))[0];
+		this.content = getSource().split(Pattern.quote("{"))[1].split(Pattern.quote("}"))[0].replace("],", "]&");
 		clearProperties();
 		if (getProperties().size() > 0) {
 			for (String str: content.split(Pattern.quote(","))) {
