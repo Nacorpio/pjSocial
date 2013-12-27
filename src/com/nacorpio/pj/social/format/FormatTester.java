@@ -1,14 +1,16 @@
 package com.nacorpio.pj.social.format;
 
-import com.nacorpio.pj.social.format.DataFormatter.FormatValue;
+import com.nacorpio.pj.social.serialization.Section;
+import com.nacorpio.pj.social.util.SerializationUtil;
 
 public final class FormatTester {
 
 	public static void main(String[] args) {
-		String var1 = DataFormatter.toFormat("Player", "Name->Aazk", "Health->100");
-		//Name->Aazk&Health->100
-		FormatValue var2 = DataFormatter.toFormatValue(var1);
-		System.out.println(var2.getValue("Health"));
+		Section var1 = new Section();
+		var1.addProperty("One");
+		var1.addProperty("Two");
+		var1.addProperty("Three");
+		System.out.println(var1.getContent());
 	}
 
 }
