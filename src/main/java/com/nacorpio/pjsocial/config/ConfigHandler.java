@@ -54,5 +54,6 @@ public final class ConfigHandler {
 		ConfigurationSection var1 = config.createSection("settings");
 		var1.set("api-key", "");
 		save();
+		loadConfigInformation();
 	}
 }
