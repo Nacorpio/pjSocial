@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import com.google.common.base.Optional;
 import com.nacorpio.pjsocial.util.SerializationUtil;
 
 /**
@@ -11,15 +12,16 @@ import com.nacorpio.pjsocial.util.SerializationUtil;
  * Those are used for either saving lists of data or just variables.<br>
  * Section can be extended and be used as a way to save custom data.
  */
-public class Section {
+public abstract class Section {
 
 	private String name;
 	private String content;
 	private boolean reloaded = false;
 	private List<Object> properties = new ArrayList<Object>();
 	
-	public Section() {
+	public Section(Object par1) {
 		this.name = "Object";
+		this.initialize(par1);
 	}
 	
 	public Section(String par1, String par2) {
@@ -28,6 +30,8 @@ public class Section {
 			this.content = par2;
 		}	
 	}
+	
+	abstract void initialize(Object par1);
 	
 	/**
 	 * Returns the name of the section.
