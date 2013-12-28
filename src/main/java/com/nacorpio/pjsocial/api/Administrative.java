@@ -1,6 +1,9 @@
 package com.nacorpio.pjsocial.api;
 
+import java.util.HashMap;
+
 import com.nacorpio.pjsocial.util.HttpUtil;
+import com.nacorpio.pjsocial.util.JSONUtil;
 
 /*
  * I dont know a correct name for this yet, temporarily calling it 'Administrative'.
@@ -8,17 +11,16 @@ import com.nacorpio.pjsocial.util.HttpUtil;
 public class Administrative {
 
 	public static final Object initialize(String api_key, String plugin_version, String hardware_id, String server_port){
+		HashMap<String, String> error;
 		try {
 			String var1 = HttpUtil.getSource("http://pjsocial.lightifylife.com/api/initialize?apikey=" + api_key + "&version=" + plugin_version + "&hwid=" + hardware_id + "&port=" + server_port);
-			/*
-			 * TODO: 
-			 *  - Convert var1 (JSON) to an useable array.
-			 *  - Return the array
-			 */
+			return JSONUtil.getValues(var1);
 		} catch (Exception e) {
-			e.printStackTrace();
+			error = new HashMap<String, String>();
+			error.put("valid", "false");
+			error.put("message", e.getMessage());
 		}
-		return null;
+		return error;
 	}
 	
 }
