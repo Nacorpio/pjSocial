@@ -15,6 +15,8 @@ public final class ProjectSocial extends JavaPlugin {
 		plugin = this;
 		ConfigHandler.initialize();
 		this.getServer().getPluginManager().registerEvents(new ChatListener(), this);
+		
+		//DEBUG PURPOSES
 		plugin.getLogger().log(Level.INFO, "API-KEY: " + ConfigHandler.api_key);
 	}
 	
