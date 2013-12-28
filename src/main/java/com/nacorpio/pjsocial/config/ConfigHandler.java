@@ -10,13 +10,18 @@ import com.nacorpio.pjsocial.ProjectSocial;
 
 public final class ConfigHandler {
 	
-	public static boolean log_actions;
+	public static String api_key;
 	public static YamlConfiguration yaml_config;
+	public static File config_file = new File(ProjectSocial.plugin.getDataFolder().getPath() + "/config.yml");
 	
 	static {
 		yaml_config = new YamlConfiguration();
 		try {
-			yaml_config.save(ProjectSocial.plugin.getDataFolder().getPath() + "/config.yml");
+			if (!config_file.exists()) {
+				reload();
+			} else {
+				yaml_config.save(ProjectSocial.plugin.getDataFolder().getPath() + "/config.yml");
+			}				
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -26,7 +31,7 @@ public final class ConfigHandler {
 	public static final void initialize() {
 		
 		ConfigurationSection var1 = yaml_config.createSection("settings");
-		var1.set("log-actions", false);
+		var1.set("api-key", "");
 
 	}
 	
@@ -34,7 +39,7 @@ public final class ConfigHandler {
 		if (new File(ProjectSocial.plugin.getDataFolder().getPath() + "/config.yml").exists()) {
 		
 			ConfigurationSection var1 = yaml_config.getConfigurationSection("settings");
-			log_actions = var1.getBoolean("log-actions");
+			api_key = var1.getString("api-key");
 			
 		}
 	}

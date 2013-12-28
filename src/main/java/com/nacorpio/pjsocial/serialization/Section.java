@@ -16,7 +16,7 @@ public class Section {
 	private String name;
 	private String content;
 	private boolean reloaded = false;
-	private List<String> properties = new ArrayList<String>();
+	private List<Object> properties = new ArrayList<Object>();
 	
 	public Section() {
 		this.name = "Object";
@@ -53,10 +53,9 @@ public class Section {
 	 * <i>Doesn't require a reload.
 	 * @param par1 the property.
 	 */
-	public final void addProperty(String par1) {
+	public final void addProperty(Object par1) {
 		if (!reloaded) {
-			properties.add("- " + par1);
-			System.out.println("- " + par1);
+			properties.add(par1);
 			this.reload();
 		}
 	}
@@ -66,13 +65,23 @@ public class Section {
 	 * @param par1 the property to look for.
 	 * @return 
 	 */
-	public final String getProperty(String par1) {
-		for (String prop: properties) {
-			if (prop.startsWith(par1) || prop.contains(par1)) {
+	public final Object getProperty(Object par1) {
+		for (Object prop: properties) {
+			if (prop.toString().startsWith(par1.toString()) || prop.toString().contains(par1.toString())) {
 				return prop;
 			}
 		}
 		return null;
+	}
+	
+	public final Object[] getArray(Object par1) {
+		Object var1 = getValue(getProperty(par1));
+		return var1.toString().split(Pattern.quote("["))[1].split(Pattern.quote("]"))[0].split(Pattern.quote(","));
+	}
+	
+	public final Object getValue(Object par1) {
+		Object var1 = getProperty(par1);
+		return var1.toString().split(": ")[1];
 	}
 	
 	/**
@@ -80,7 +89,7 @@ public class Section {
 	 * @param par1 the index.
 	 * @return the property.
 	 */
-	public final String getProperty(int par1) {
+	public final Object getProperty(int par1) {
 		return properties.get(par1);
 	}
 	
@@ -112,7 +121,7 @@ public class Section {
 	 * When reloaded, the properties are parsed from the source.
 	 * @return the properties.
 	 */
-	public final List<String> getProperties() {
+	public final List<Object> getProperties() {
 		return this.properties;
 	}
 	
@@ -134,7 +143,7 @@ public class Section {
 		// if (this.content == null || this.content == "") {
 			if (!(properties.size() == 0 && properties == null)) {
 				for (int i = 0; i < properties.size(); i++) {
-					String prop = properties.get(i);
+					Object prop = properties.get(i);
 					if (i < properties.size() - 1) {
 						var1 += prop + ",";
 					} else {
