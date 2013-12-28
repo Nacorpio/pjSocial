@@ -9,7 +9,7 @@ public final class FormatTester {
 		var1.addProperty("Name: [Hello,Fishy]");
 		var1.addProperty("Health: [Kishy,Nishy]");
 		var1.addProperty("Position: [0,0,0,0,0]");
-		System.out.println(var1.getArray("Name")[0]);
+		System.out.println(var1.getSource() + "\n" + var1.getArray("Position")[4]);
 	}
 
 }
