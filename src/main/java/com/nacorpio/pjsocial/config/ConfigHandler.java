@@ -2,6 +2,7 @@ package com.nacorpio.pjsocial.config;
 
 import java.io.File;
 
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -24,10 +25,13 @@ public final class ConfigHandler {
 			if(!plugin_folder.exists())
 				plugin_folder.mkdir();
 			
-			if(!config_file.exists())
+			if(!config_file.exists()){
 				config_file.createNewFile();
-			
-			config.load(config_file);
+				setConfigDefaults();
+			} else {
+				config.load(config_file);
+				loadConfigInformation();
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -41,4 +45,14 @@ public final class ConfigHandler {
 		try { config.load(config_file); } catch (Exception e) {e.printStackTrace();}
 	}
 	
+	private static final void loadConfigInformation() {
+		ConfigurationSection var1 = config.getConfigurationSection("settings");
+		api_key = var1.getString("api-key");
+	}
+	
+	private static final void setConfigDefaults() {
+		ConfigurationSection var1 = config.createSection("settings");
+		var1.set("api-key", "");
+		save();
+	}
 }

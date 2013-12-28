@@ -1,5 +1,7 @@
 package com.nacorpio.pjsocial;
 
+import java.util.logging.Level;
+
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.nacorpio.pjsocial.config.ConfigHandler;
@@ -13,6 +15,7 @@ public final class ProjectSocial extends JavaPlugin {
 		plugin = this;
 		ConfigHandler.initialize();
 		this.getServer().getPluginManager().registerEvents(new ChatListener(), this);
+		plugin.getLogger().log(Level.INFO, "API-KEY: " + ConfigHandler.api_key);
 	}
 	
 	public void onDisable() {
