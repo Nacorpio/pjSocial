@@ -1,48 +1,38 @@
 package com.nacorpio.pjsocial.config;
 
 import java.io.File;
-import java.io.IOException;
 
-import org.bukkit.configuration.ConfigurationSection;
-import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.configuration.file.FileConfiguration;
 
 import com.nacorpio.pjsocial.ProjectSocial;
 
 public final class ConfigHandler {
 	
 	public static String api_key;
-	public static YamlConfiguration yaml_config;
-	public static File config_file;
 	
-	static {
-		config_file = new File(ProjectSocial.plugin.getDataFolder() + "/config.yml");
-		yaml_config = new YamlConfiguration();
-		try {
-			if (!config_file.exists()) {
-				reload();
-			} else {
-				yaml_config.save(ProjectSocial.plugin.getDataFolder().getPath() + "/config.yml");
-			}				
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		initialize();
-	}
+	public static File plugin_folder;
+	public static File config_file;
+	public static FileConfiguration config;
 	
 	public static final void initialize() {
+		plugin_folder = ProjectSocial.plugin.getDataFolder();
+		config_file = new File(plugin_folder, "config.yml");
 		
-		ConfigurationSection var1 = yaml_config.createSection("settings");
-		var1.set("api-key", "");
-
+		if(!plugin_folder.exists())
+			try{ plugin_folder.mkdir(); } catch(Exception e){e.printStackTrace();}
+		
+		if(!config_file.exists())
+			try{ config_file.createNewFile(); } catch(Exception e){e.printStackTrace();}
+		
+		try { config.load(config_file); } catch (Exception e) {e.printStackTrace();}
+	}
+	
+	public static final void save() {
+		try { config.save(config_file); } catch (Exception e) {e.printStackTrace();}
 	}
 	
 	public static final void reload() {
-		if (new File(ProjectSocial.plugin.getDataFolder().getPath() + "/config.yml").exists()) {
-		
-			ConfigurationSection var1 = yaml_config.getConfigurationSection("settings");
-			api_key = var1.getString("api-key");
-			
-		}
+		try { config.load(config_file); } catch (Exception e) {e.printStackTrace();}
 	}
 	
 }
