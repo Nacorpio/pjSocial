@@ -10,9 +10,9 @@ public final class ProjectSocial extends JavaPlugin {
 	public static JavaPlugin plugin;
 	
 	public void onEnable() {
+		plugin = this;
 		ConfigHandler.initialize();
 		this.getServer().getPluginManager().registerEvents(new ChatListener(), this);
-		plugin = this;
 	}
 	
 	public void onDisable() {
