@@ -31,6 +31,10 @@ public abstract class Section {
 		}	
 	}
 	
+	/**
+	 * This is the only point where you can choose what's saved.
+	 * @param par1 the instance to save.
+	 */
 	abstract void initialize(Object par1);
 	
 	/**

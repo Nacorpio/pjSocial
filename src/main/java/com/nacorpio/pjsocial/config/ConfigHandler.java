@@ -12,9 +12,10 @@ public final class ConfigHandler {
 	
 	public static String api_key;
 	public static YamlConfiguration yaml_config;
-	public static File config_file = new File(ProjectSocial.plugin.getDataFolder().getPath() + "/config.yml");
+	public static File config_file;
 	
 	static {
+		config_file = new File(ProjectSocial.plugin.getDataFolder().getPath() + "/config.yml");
 		yaml_config = new YamlConfiguration();
 		try {
 			if (!config_file.exists()) {
