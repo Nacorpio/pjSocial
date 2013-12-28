@@ -9,7 +9,7 @@ public final class JSONUtil {
 	public static final String getValue(String par1, String par2) {
 		String var1 = par1.split(Pattern.quote("{"))[1].split(Pattern.quote("}"))[0];
 		String[] var2 = var1.split(Pattern.quote(",")); // "valid":"false"
-		for (String var: var2) {
+		for (String var : var2) {
 			if (var.startsWith("\"" + par2)) {
 				String value = var.split(Pattern.quote(":"))[1];
 				return value.replace("\"", "");
@@ -17,16 +17,16 @@ public final class JSONUtil {
 		}
 		return null;
 	}
-	
+
 	public static final HashMap<String, String> getValues(String par1) {
 		HashMap<String, String> values = new HashMap<String, String>();
 		String var1 = par1.split(Pattern.quote("{"))[1].split(Pattern.quote("}"))[0];
 		String[] var2 = var1.split(Pattern.quote(","));
-		for (String var: var2) {
+		for (String var : var2) {
 			String val = var.replace("\"", "");
 			values.put(val.split(Pattern.quote(":"))[0], val.split(Pattern.quote(":"))[1]);
 		}
 		return values;
 	}
-	
+
 }

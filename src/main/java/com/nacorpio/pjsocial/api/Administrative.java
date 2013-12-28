@@ -10,7 +10,7 @@ import com.nacorpio.pjsocial.util.JSONUtil;
  */
 public class Administrative {
 
-	public static final Object initialize(String api_key, String plugin_version, String hardware_id, String server_port){
+	public static final HashMap<String, String> initialize(String api_key, String plugin_version, String hardware_id, String server_port){
 		HashMap<String, String> error;
 		try {
 			String var1 = HttpUtil.getSource("http://pjsocial.lightifylife.com/api/initialize?apikey=" + api_key + "&version=" + plugin_version + "&hwid=" + hardware_id + "&port=" + server_port);

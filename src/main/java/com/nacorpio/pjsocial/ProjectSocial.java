@@ -1,5 +1,6 @@
 package com.nacorpio.pjsocial;
 
+import java.util.HashMap;
 import java.util.logging.Level;
 
 import org.bukkit.plugin.java.JavaPlugin;
@@ -18,7 +19,12 @@ public final class ProjectSocial extends JavaPlugin {
 		this.getServer().getPluginManager().registerEvents(new ChatListener(), this);
 		
 		//Administrative
-		Administrative.initialize(ConfigHandler.api_key, plugin.getDescription().getVersion(), "HWID", "" + plugin.getServer().getPort());
+		HashMap<String,String> var1 = Administrative.initialize(ConfigHandler.api_key, plugin.getDescription().getVersion(), "HWID", "" + plugin.getServer().getPort());
+		if(var1.containsKey("valid") && var1.get("valid").equals("true")){
+			plugin.getLogger().log(Level.INFO, var1.get("message"));
+		} else {
+			plugin.getLogger().log(Level.SEVERE, var1.get("message"));
+		}
 		
 		//DEBUG PURPOSES
 		plugin.getLogger().log(Level.INFO, "API-KEY: " + ConfigHandler.api_key);
