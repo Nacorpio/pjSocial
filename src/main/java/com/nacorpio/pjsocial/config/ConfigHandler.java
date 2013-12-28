@@ -15,7 +15,7 @@ public final class ConfigHandler {
 	public static File config_file;
 	
 	static {
-		config_file = new File(ProjectSocial.plugin.getDataFolder().getPath() + "/config.yml");
+		config_file = new File(ProjectSocial.plugin.getDataFolder() + "/config.yml");
 		yaml_config = new YamlConfiguration();
 		try {
 			if (!config_file.exists()) {
