@@ -21,7 +21,7 @@ public final class DebugUtil {
 		String output = "";
 		System.out.println("==== [Size: " + par1.length + "] ====");
 		for (int i = 0; i < par1.length; i++) {
-			output += "(" + i + "): " + par1[i];
+			output += "(" + i + "): " + par1[i] + "\n";
 		}
 		System.out.println(output);
 		System.out.println("==== =========================== ====");
