@@ -20,9 +20,7 @@ public final class JSONUtil {
 	}
 
 	public static final String getContent(String par1, String par2) {
-		String var1 = "";
-		var1 = par1.split(Pattern.quote("{\"" + par2 + "\":{"))[1].split(String.valueOf(par1.toCharArray()[par1.lastIndexOf("}")]))[0];
-		return var1;
+		return par1.split(Pattern.quote("{\"" + par2 + "\":{"))[1].split(String.valueOf(par1.toCharArray()[par1.lastIndexOf("}")]))[0]; 
 	}
 	
 	// {"inventory":["",""]}
