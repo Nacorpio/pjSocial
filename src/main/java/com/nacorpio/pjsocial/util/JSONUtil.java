@@ -24,7 +24,7 @@ public final class JSONUtil {
 	}
 	
 	public static final boolean isJSON(String par1) {
-		return par1.matches("\\{(\".*?\")+\\}");
+		return par1.matches("\\{(\".*?\":\".*?\")+\\}");
 	}
 	
 	// {"inventory":["",""]}
