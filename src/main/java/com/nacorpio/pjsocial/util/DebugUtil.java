@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 public final class DebugUtil {
 
-	public static final void debug(HashMap<Object, Object> par1) {
+	public static final void debug(HashMap<?, ?> par1) {
 		String output = "";
 		String[] keys = Arrays.copyOf(par1.keySet().toArray(), par1.size(), String[].class);
 		String[] values = Arrays.copyOf(par1.values().toArray(), par1.size(), String[].class);

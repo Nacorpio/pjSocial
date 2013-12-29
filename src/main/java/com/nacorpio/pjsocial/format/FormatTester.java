@@ -2,6 +2,7 @@ package com.nacorpio.pjsocial.format;
 
 import java.util.HashMap;
 
+import com.nacorpio.pjsocial.util.DebugUtil;
 import com.nacorpio.pjsocial.util.JSONUtil;
 
 public final class FormatTester {
@@ -10,7 +11,7 @@ public final class FormatTester {
 		HashMap<String, String> var1 = new HashMap<String, String>();
 		var1.put("name", "value");
 		var1.put("valid", "false");
-		System.out.println(JSONUtil.toJSON(var1));
+		DebugUtil.debug(var1);
 	}
 
 }
