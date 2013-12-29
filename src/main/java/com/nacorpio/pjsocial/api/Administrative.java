@@ -21,7 +21,7 @@ public class Administrative {
 		}
 		
 		if(var1.isEmpty()){
-			HashMap<String, String> var2 = new HashMap<>();
+			HashMap<String, String> var2 = new HashMap<String, String>();
 			var2.put("valid", "false");
 			var2.put("message", "Something bad happened.");
 			return var2;
