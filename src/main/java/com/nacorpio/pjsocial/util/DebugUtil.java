@@ -10,6 +10,14 @@ public final class DebugUtil {
 		debug(par1);
 	}
 	
+	public static final void debug(Object par1, Exception par2) {
+		System.out.println("==== [ID: \'" + par1 + "\' debugging] ====");
+		System.out.println("Message: " + par2.getMessage());
+		System.out.println("Localization: " + par2.getLocalizedMessage());
+		System.out.println("Cause: " + par2.getCause().toString());
+		System.out.println("========");
+	}
+	
 	public static final void debug(HashMap<?, ?> par1) {
 		String output = "";
 		String[] keys = Arrays.copyOf(par1.keySet().toArray(), par1.size(), String[].class);
