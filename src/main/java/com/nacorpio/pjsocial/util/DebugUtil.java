@@ -6,6 +6,14 @@ import java.util.Map;
 
 public final class DebugUtil {
 
+	public static final String buildLog(Exception par1) {
+		HashMap<String, String> var1 = new HashMap<String, String>();
+		var1.put("message", par1.getMessage());
+		var1.put("localization", par1.getLocalizedMessage());
+		var1.put("cause", par1.getCause().getMessage());
+		return JSONUtil.toJSON(var1);
+	}
+	
 	public static final void debug(Map<?, ?> par1) {
 		debug(par1);
 	}
