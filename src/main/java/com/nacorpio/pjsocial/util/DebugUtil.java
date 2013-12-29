@@ -2,9 +2,14 @@ package com.nacorpio.pjsocial.util;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
 
 public final class DebugUtil {
 
+	public static final void debug(Map<?, ?> par1) {
+		debug(par1);
+	}
+	
 	public static final void debug(HashMap<?, ?> par1) {
 		String output = "";
 		String[] keys = Arrays.copyOf(par1.keySet().toArray(), par1.size(), String[].class);
