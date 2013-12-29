@@ -1,6 +1,7 @@
 package com.nacorpio.pjsocial.format;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -265,6 +266,10 @@ public class DataFormatter {
 			}
 		}
 		return var1;
+	}
+	
+	public static final String[] toStringArray(Object... par1) {
+		return Arrays.copyOf(par1, par1.length, String[].class);
 	}
 	
 	@SuppressWarnings("deprecation")

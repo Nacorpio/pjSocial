@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 
 public final class JSONUtil {
 
-	// {"valid":"false","message":"The api entered in the config doesn't seem to exist in our database. Please verify that you've registered on our website and followed the setup wizard."}
+	public static String val = "{\"valid\":\"false\",\"message\":\"The api entered in the config doesn\'t seem to exist in our database. Please verify that you\'ve registered on our website and followed the setup wizard.\"}";
 	public static final String getValue(String par1, String par2) {
 		String var1 = par1.split(Pattern.quote("{"))[1].split(Pattern.quote("}"))[0];
 		String[] var2 = var1.split(Pattern.quote(",")); // "valid":"false"
@@ -19,6 +19,12 @@ public final class JSONUtil {
 		return null;
 	}
 
+	public static final String getContent(String par1, String par2) {
+		String var1 = "";
+		var1 = par1.split(Pattern.quote("{\"" + par2 + "\":{"))[1].split(String.valueOf(par1.toCharArray()[par1.lastIndexOf("}")]))[0];
+		return var1;
+	}
+	
 	public static final HashMap<String, String> getValues(String par1) {
 		HashMap<String, String> values = new HashMap<String, String>();
 		String var1 = par1.split(Pattern.quote("{"))[1].split(Pattern.quote("}"))[0];
