@@ -11,7 +11,11 @@ public final class DebugUtil {
 		String[] values = Arrays.copyOf(par1.values().toArray(), par1.size(), String[].class);
 		System.out.println("==== [Size: " + par1.size() + "] ====");
 		for (int i = 0; i < par1.size(); i++) {
-			output += keys[i] + " : " + values[i] + "\n";
+			if (i < par1.size() - 1) {
+				output += keys[i] + " : " + values[i] + "\n";
+			} else {
+				output += keys[i] + " : " + values[i];
+			}
 		}
 		System.out.println(output);
 		System.out.println("==== =========================== ====");
@@ -21,7 +25,11 @@ public final class DebugUtil {
 		String output = "";
 		System.out.println("==== [Size: " + par1.length + "] ====");
 		for (int i = 0; i < par1.length; i++) {
-			output += "(" + i + "): " + par1[i] + "\n";
+			if (i < par1.length - 1) {
+				output += "(" + i + "): " + par1[i] + "\n";
+			} else {
+				output += "(" + i + "): " + par1[i];
+			}
 		}
 		System.out.println(output);
 		System.out.println("==== =========================== ====");
