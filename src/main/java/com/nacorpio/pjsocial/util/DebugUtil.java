@@ -13,8 +13,18 @@ public final class DebugUtil {
 		for (int i = 0; i < par1.size(); i++) {
 			output += keys[i] + " : " + values[i] + "\n";
 		}
-		System.out.println("==== =========================== ====");
 		System.out.println(output);
+		System.out.println("==== =========================== ====");
+	}
+	
+	public static final void debug(Object... par1) {
+		String output = "";
+		System.out.println("==== [Size: " + par1.length + "] ====");
+		for (int i = 0; i < par1.length; i++) {
+			output += "(" + i + "): " + par1[i];
+		}
+		System.out.println(output);
+		System.out.println("==== =========================== ====");
 	}
 	
 }
