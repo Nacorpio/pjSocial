@@ -18,6 +18,7 @@ public class Administrative {
 			DebugUtil.debug(var1);
 			return JSONUtil.getValues(var1);
 		} catch (Exception e) {
+			e.printStackTrace();
 			error.put("valid", "false");
 			error.put("message", "ERROR: " + e.getMessage());
 		}
