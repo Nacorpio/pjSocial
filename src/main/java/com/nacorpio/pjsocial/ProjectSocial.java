@@ -20,11 +20,6 @@ public final class ProjectSocial extends JavaPlugin {
 		
 		//Administrative
 		HashMap<String,String> var1 = Administrative.initialize(ConfigHandler.api_key, plugin.getDescription().getVersion(), "HWID", "" + plugin.getServer().getPort());
-		
-		for (String s : var1.keySet()) {
-			plugin.getLogger().info(s + " - " + var1.get(s));
-		}
-		
 		if(var1.containsKey("valid") && var1.get("valid").equals("true")){
 			plugin.getLogger().log(Level.INFO, var1.get("message"));
 		} else {
