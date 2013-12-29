@@ -11,7 +11,6 @@ public final class FormatTester {
 
 	public static void main(String[] args) {
 		String val = "{\"valid\":\"true\"}";
-		System.out.println(val.ind);
 	}
 
 }

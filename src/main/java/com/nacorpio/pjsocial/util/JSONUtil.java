@@ -27,10 +27,10 @@ public final class JSONUtil {
 	
 	public static final HashMap<String, String> getValues(String par1) {
 		HashMap<String, String> values = new HashMap<String, String>();
-		String var1 = par1.split(Pattern.quote("{"))[1].split(Pattern.quote("}"))[0];
+		String var1 = par1.split(Pattern.quote("{"))[1].split(Pattern.quote("}"))[0].replace(',', '_');
 		String[] var2 = var1.split(Pattern.quote(","));
 		for (String var : var2) {
-			String val = var.replace("\"", "");
+			String val = var.replace("\"", "").replace('_', ',');
 			values.put(val.split(Pattern.quote(":"))[0], val.split(Pattern.quote(":"))[1]);
 		}
 		return values;
