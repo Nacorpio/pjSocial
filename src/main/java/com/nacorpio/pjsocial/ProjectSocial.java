@@ -23,7 +23,11 @@ public final class ProjectSocial extends JavaPlugin {
 		if(var1.containsKey("valid") && var1.get("valid").equals("true")){
 			plugin.getLogger().log(Level.INFO, var1.get("message"));
 		} else {
-			plugin.getLogger().log(Level.SEVERE, var1.get("message"));
+			if(var1.containsKey("message")){
+				plugin.getLogger().log(Level.SEVERE, var1.get("message"));
+			} else {
+				plugin.getLogger().log(Level.SEVERE, "Var1 'message' doesn't exist.");
+			}
 		}
 		
 		//DEBUG PURPOSES
