@@ -1,5 +1,6 @@
 package com.nacorpio.pjsocial.util;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.regex.Pattern;
 
@@ -31,13 +32,15 @@ public final class JSONUtil {
 
 	public static final String toJSON(HashMap<String, String> par1) {
 		String var1 = "{";
-		String[] keys = (String[]) par1.keySet().toArray();
-		String[] values = (String[]) par1.values().toArray();
-		for (String key: keys) {
-			for (String val: values) {
-				var1 += toJSONValue(key, val);
+		String[] keys = Arrays.copyOf(par1.keySet().toArray(), par1.size(), String[].class);
+		String[] values = Arrays.copyOf(par1.values().toArray(), par1.size(), String[].class);
+		for (int i = 0; i < par1.size(); i++) {
+			if (i < par1.size() - 1) {
+				var1 += toJSONValue(keys[i], values[i]) + ",";
+			} else {
+				var1 += toJSONValue(keys[i], values[i]);
 			}
-		}
+		}	
 		var1 += "}";
 		return var1;
 	}
