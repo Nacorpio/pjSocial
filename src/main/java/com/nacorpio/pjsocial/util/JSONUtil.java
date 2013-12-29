@@ -29,4 +29,21 @@ public final class JSONUtil {
 		return values;
 	}
 
+	public static final String toJSON(HashMap<String, String> par1) {
+		String var1 = "{";
+		String[] keys = (String[]) par1.keySet().toArray();
+		String[] values = (String[]) par1.values().toArray();
+		for (String key: keys) {
+			for (String val: values) {
+				var1 += toJSONValue(key, val);
+			}
+		}
+		var1 += "}";
+		return var1;
+	}
+	
+	private static final String toJSONValue(String par1, String par2) {
+		return "\"" + par1 + "\":\"" + par2 + "\"";
+	}
+	
 }
