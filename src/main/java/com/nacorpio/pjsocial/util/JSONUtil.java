@@ -25,6 +25,11 @@ public final class JSONUtil {
 		return var1;
 	}
 	
+	// {"inventory":["",""]}
+	public static final String[] getArray(String par1, String par2) {
+		return getValue(par1, par2).split("[")[1].split("]")[0].replace("\"", "").split(",");	
+	}
+	
 	public static final HashMap<String, String> getValues(String par1) {
 		HashMap<String, String> values = new HashMap<String, String>();
 		String var1 = par1.split(Pattern.quote("{"))[1].split(Pattern.quote("}"))[0].replace(',', '_');
