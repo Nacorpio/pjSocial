@@ -15,12 +15,12 @@ public class Administrative {
 		HashMap<String, String> error;
 		try {
 			String var1 = HttpUtil.getSource("http://pjsocial.lightifylife.com/api/initialize?apikey=" + api_key + "&version=" + plugin_version + "&hwid=" + hardware_id + "&port=" + server_port);
+			ProjectSocial.plugin.getLogger().info("HTTP CALL WORKED!");
 			return JSONUtil.getValues(var1);
 		} catch (Exception e) {
-			ProjectSocial.plugin.getLogger().info(e.getMessage());
 			error = new HashMap<String, String>();
 			error.put("valid", "false");
-			error.put("message", e.getMessage());
+			error.put("message", "ERROR: " + e.getMessage());
 		}
 		return error;
 	}
