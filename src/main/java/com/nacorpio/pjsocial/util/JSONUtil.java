@@ -23,6 +23,10 @@ public final class JSONUtil {
 		return par1.split(Pattern.quote("{\"" + par2 + "\":{"))[1].split(String.valueOf(par1.toCharArray()[par1.lastIndexOf("}")]))[0]; 
 	}
 	
+	public static final boolean isJSON(String par1) {
+		return par1.matches("\\{(\".*?\")+\\}");
+	}
+	
 	// {"inventory":["",""]}
 	public static final String[] getArray(String par1, String par2) {
 		return getValue(par1, par2).split("[")[1].split("]")[0].replace("\"", "").split(",");	
@@ -33,7 +37,7 @@ public final class JSONUtil {
 		String var1 = par1.split(Pattern.quote("{"))[1].split(Pattern.quote("}"))[0];//.replace(',', '_');
 		String[] var2 = var1.split(Pattern.quote(","));
 		for (String var : var2) {
-			String val = var.replace("\"", ""); //.replace('_', ',');
+			String val = var.replace("\"", "").replace('_', ',');
 			values.put(val.split(Pattern.quote(":"))[0], val.split(Pattern.quote(":"))[1]);
 		}
 		return values;
