@@ -11,7 +11,6 @@ import com.nacorpio.pjsocial.util.JSONUtil;
 public class Administrative {
 
 	public static final HashMap<String, String> initialize(String api_key, String plugin_version, String hardware_id, String server_port){
-		//HashMap<String, String> error = new HashMap<String, String>();
 		String var1 = "";
 		
 		try {
